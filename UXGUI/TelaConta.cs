@@ -86,6 +86,7 @@ namespace contigencia.UXGUI
                 new Telaconta().ListarConta(use);
             }else{
                 new TextoNo().UserNoOwner();
+                this.ListarConta(use);
             }
 
             
@@ -127,6 +128,7 @@ namespace contigencia.UXGUI
             if(!String.IsNullOrEmpty(Nova_conta.NomeConta)){
             Nova_conta.UsuarioIdUsuario=use.IdUsuario;
             new ContasDados().Salvar(Nova_conta);
+            new Telaconta().ListarConta(use);
             }
             else{
                 Console.WriteLine(" 03- Os campos Senha e Saldo são obrigatorios!");
