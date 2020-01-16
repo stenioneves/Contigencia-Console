@@ -53,6 +53,12 @@ namespace contigencia.UXGUI
              Console.WriteLine("Sair selecionado!");
              lg.TelaLogin();
              break;
+             case 2:
+             new TelaPlanoConta().ListarPlanoConta(use);
+             break;
+             case 3:
+             new TelaTransacao().ListarTransacao(use);
+             break;
 
 
               default :
