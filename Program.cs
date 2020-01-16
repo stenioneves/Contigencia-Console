@@ -19,10 +19,25 @@ namespace contigencia
                 Console.WriteLine("*******-------***************************************");
             
             }*/
-
-              Usuario us = new Usuario();
-              Login lg =new Login();
-             lg.TelaLogin();
+                try
+                {
+                     Usuario us = new Usuario();
+                    Login lg =new Login();
+                    lg.TelaLogin();
+                    
+                }
+                catch (System.InvalidOperationException)
+                {
+                    Console.WriteLine("00- Falha na conexão com o banco de dados "+
+                    " ou você está offline!");
+                    
+                    Console.WriteLine(" Favor acionar o suporte!");
+                   
+                } catch(System.FormatException)
+                {
+                    Console.WriteLine("07- Tipos de dados invalidos! ");
+                }
+             
              
               
         }
