@@ -191,5 +191,16 @@ namespace contigencia.UXGUI
 
 
         }
+        public void InteracaoPlanoConta(Usuario use)
+        {
+            Console.WriteLine("| Código  || Descrição  || Tipo ");
+            Console.WriteLine("-------------------------------- \n");
+            foreach (var item in new PlanoContaDados().ListarPlanosContas(use))
+            {
+                Console.ForegroundColor=f[rm.Next(0,5)];
+                Console.WriteLine($"| {item.IdPlanoContas}  || {item.Descricao}  || {item.Tipo}");
+                Console.WriteLine("---------------------------------");
+            }    
+        }
     }
 }
