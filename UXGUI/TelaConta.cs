@@ -173,6 +173,21 @@ namespace contigencia.UXGUI
             
         }
 
+        public void ListarContasUsuarios(Usuario us){
+            var contas = from Conta in fc.Conta.ToList()
+                        where Conta.UsuarioIdUsuario== us.IdUsuario
+                        select Conta;
+                Console.WriteLine("| Código  || Nome  || Saldo ");
+            Console.WriteLine("-------------------------------- \n");
+            foreach (var item in contas)
+            {
+                Console.ForegroundColor=f[rm.Next(0,5)];
+                //Console.WriteLine("_________________________________");
+                Console.WriteLine($"| {item.Idconta}  || {item.NomeConta}  || {item.Saldo}");
+                Console.WriteLine("---------------------------------");
+            }        
+        }
+
 
 
 
