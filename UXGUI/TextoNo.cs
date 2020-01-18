@@ -52,5 +52,27 @@ namespace contigencia.UXGUI
             Console.ForegroundColor =ConsoleColor.Magenta;
             Console.WriteLine($"{use.Nome}");
         }
+        public void TextoTransacaoIdSelecao()
+        {
+            Console.ForegroundColor=ConsoleColor.White;
+            Console.Write("Digite o Código da Transacao : ");
+        }
+        public void TextoEdicaoTransacao()
+        {
+            Console.WriteLine("Opções:");
+            Console.WriteLine("0- Voltar:");
+            Console.ForegroundColor=ConsoleColor.DarkGreen;
+            Console.WriteLine("1- Editar historico:");
+            Console.ForegroundColor=ConsoleColor.Yellow;
+            Console.WriteLine("2- Editar Data:");
+            Console.ForegroundColor=ConsoleColor.Magenta;
+            Console.WriteLine("3- Editar Valor:");
+            Console.ForegroundColor=ConsoleColor.Cyan;
+            Console.WriteLine("4- Editar Tipo:");
+            Console.WriteLine("5- Editar Plano conta");
+            Console.WriteLine("6- Editar Conta");
+             Console.Write("Digite o número da opção: ");
+            Console.ForegroundColor=ConsoleColor.DarkGray;
+        }
     }
 }
