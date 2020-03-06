@@ -25,7 +25,14 @@ namespace contigencia.UXGUI
 
 
             switch (op)
-            {
+            {   case 0:
+                new TelaPrincipal().TelaPS(use);
+                break;
+                case 1:
+                this.NovaTransacao(use);
+                this.ListarOrdenado(new TransacaoDados().ListarTransacoes(use));
+                this.ListarTransacao(use);
+                break;
                 case 2:
                 this.EditarTransacao(use);
                 this.ListarTransacao(use);
@@ -66,9 +73,13 @@ namespace contigencia.UXGUI
                         p=0;
                         continue;
                     }
+                    
 
                 }
+                continue;
+
             }
+            Console.Read();
         }
 
         public void ListarUmaTransacao()
@@ -168,6 +179,46 @@ namespace contigencia.UXGUI
                 return editar;
             
             }
+        }
+        public  void NovaTransacao(Usuario use)
+        {
+            new TransacaoDados().SalvarTransacao(NovaTransacaot(use));
+        }
+        private Transacao NovaTransacaot(Usuario use)
+        {       Transacao editar= new Transacao();
+            
+                Console.ForegroundColor=ConsoleColor.White;
+                Console.Write($"Digite o nome para Historico : ");
+                Console.ForegroundColor=ConsoleColor.DarkCyan;
+                editar.Descricao=Console.ReadLine();                      
+                Console.ForegroundColor=ConsoleColor.White;
+                Console.Write($"Digite a data(dd/mm/aaaa) : ");
+                Console.ForegroundColor=ConsoleColor.DarkCyan;
+                editar.Data=DateTime.Parse(Console.ReadLine());   
+                Console.ForegroundColor=ConsoleColor.White;
+                Console.Write($"Digite um valor(0.00) : ");
+                Console.ForegroundColor=ConsoleColor.DarkCyan;
+                editar.Valor=decimal.Parse(Console.ReadLine());
+                Console.ForegroundColor=ConsoleColor.White;
+                Console.Write($"Digite um tipo:[{editar.Descricao}]D ou R : ");
+                Console.ForegroundColor=ConsoleColor.DarkCyan;
+                editar.Tipo=Console.ReadLine();
+                Console.ForegroundColor=ConsoleColor.White;
+                Console.Write($"Digite o código do plano conta : ");
+                Console.WriteLine("Suas opções:");
+                new TelaPlanoConta().InteracaoPlanoConta(use);
+                Console.Write("Digite o código:");
+                Console.ForegroundColor=ConsoleColor.DarkCyan;
+                editar.PlanoContasIdPlanoContas=int.Parse(Console.ReadLine());
+                Console.ForegroundColor=ConsoleColor.White;
+                Console.Write($"Digite o código da conta : ");
+                Console.WriteLine("Suas opções:");
+                new Telaconta().ListarContasUsuarios(use);
+                Console.Write("Digite o código:");
+                Console.ForegroundColor=ConsoleColor.DarkCyan;
+                editar.ContaIdconta=int.Parse(Console.ReadLine());
+                editar.UsuarioId= use.IdUsuario;
+                return editar;
         }
 
         
